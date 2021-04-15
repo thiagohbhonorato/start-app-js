@@ -1,0 +1,242 @@
+/*! Modal 
+ -----------------*/
+.modal-header {
+	padding: 5px 15px;
+}
+.modal-body {
+	padding: 10px 15px 5px 15px;
+	overflow-y: auto;
+}
+.modal-footer {
+	padding: 10px 15px;
+}
+@media (min-width: 768px) {
+	.modal-open .modal {
+		overflow: hidden;
+	}
+	.modal-dialog {
+	    margin-top: 55px;
+	    max-height: calc(100vh - 60px);
+	}
+	.modal-dialog .modal-content {
+		height: 100%;
+		max-height: 100%;
+	}
+}
+/*! Modal Viewport
+ -----------------*/
+.modal-dialog.modal-viewport .modal-content {
+	display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+}
+.modal-dialog.modal-viewport .modal-body {
+	-webkit-flex-grow: 1;
+    -ms-flex-grow: 1;
+	flex-grow: 1;
+}
+
+@media (max-width: 767px) {
+	.modal-dialog.modal-viewport {
+		height: 100vh;
+	}
+}
+@media (min-width: 768px) {
+	.modal-dialog.modal-viewport {
+		height: calc(100vh - 60px);
+	}
+}
+
+/*! Modal Draggable
+ ------------------*/
+.modal-dialog:not(.maximized) .modal-header.ui-draggable-handle {
+	cursor: move;
+}
+
+/*! Modal Maximize
+ -----------------*/
+.modal-header>.close,
+.modal-header>.maximize {
+	padding: 15px 25px;
+	margin-top: -5px;
+	margin-bottom: -5px;
+	outline: none;
+}
+.modal-header>.close {
+	margin-right: -15px;
+}
+.modal-header > .modal-title {
+	pointer-events: none;
+}
+.modal-maximize .modal-header>.maximize {
+	float: right;	
+	font-weight: 300;
+	line-height: 24px;
+	color: #000000;
+	text-shadow: none;
+	opacity: 0.5;
+	padding-bottom: 11px;
+	padding-left: 20px;
+    padding-right: 20px;
+	filter: alpha(opacity=20);
+	-webkit-transition: all 0.2s;
+	   -moz-transition: all 0.2s;
+	    -ms-transition: all 0.2s;
+	     -o-transition: all 0.2s;
+	        transition: all 0.2s;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	-webkit-appearance: none;
+	position: relative;
+}
+.modal-maximize .modal-header>.maximize>i {
+	font-size: 28px;
+	vertical-align: middle;
+}
+.modal-maximize .modal-header>.maximize>i:after {
+	content: "fullscreen";
+}
+.modal-maximize.maximized .modal-header>.maximize>i:after {
+	content: "fullscreen_exit";
+}
+.modal-header>.close:hover,
+.modal-header>.maximize:hover {
+	text-decoration: none;
+	cursor: pointer;
+	opacity: 1;
+	background: rgba(0,0,0,.1);
+}
+.modal-maximize.maximized {
+	position: fixed;
+    top: 5px;
+    margin: 0;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    height: auto;
+    max-height: calc(100vh - 10px);
+    width: calc(100% - 10px);
+}
+
+/*! Modal Loading
+ -----------------*/
+.modal-loading-progress-widget {
+    display: block;
+    height: 4px;
+	width: 100%;
+    max-width: 100%;
+    position: absolute;
+	visibility: hidden;
+	left: 0;
+    right: 0;
+    top: 0;
+}
+.modal-loading-progress-widget > .modal-loading-progress-bar {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 0%;
+	transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: none;
+}
+.modal-loading-progress-widget.show {
+	visibility: visible;
+}
+.modal-loading-progress-widget.show > .modal-loading-progress-bar {
+	display: block;
+}
+
+.modal-loading-progress-widget > .progressbar {
+	background-color: rgb(63,81,181);
+	z-index: 1;
+	left: 0;
+}
+.modal-loading-progress-widget > .bufferbar {
+	background-image: linear-gradient(to right, rgba(255,255,255, 0.7), rgba(255,255,255, 0.7)), linear-gradient(to right, rgb(63,81,181), rgb(63,81,181));
+	z-index: 0;
+	left: 0;
+}
+.modal-loading-progress-widget > .auxbar {
+	z-index: 1;
+	right: 0;
+}
+
+.modal-loading-progress-widget > .mlp-bar1 {
+	background-color: rgb(63,81,181);
+	-webkit-animation-name: modal-progress-bar1;
+		    animation-name: modal-progress-bar1;
+	-webkit-animation-duration: 2s;
+		    animation-duration: 2s;
+	-webkit-animation-iteration-count: infinite;
+		    animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+		    animation-timing-function: linear;
+}
+.modal-loading-progress-widget > .mlp-bar3 {
+	background-image: none;
+	background-color: rgb(63,81,181);
+	-webkit-animation-name: modal-progress-bar2;
+		    animation-name: modal-progress-bar2;
+	-webkit-animation-duration: 2s;
+		    animation-duration: 2s;
+	-webkit-animation-iteration-count: infinite;
+		    animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+		    animation-timing-function: linear;
+}
+@-webkit-keyframes modal-progress-bar1 {
+  0% {
+    left: 0%;
+    width: 0%; }
+  50% {
+    left: 25%;
+    width: 75%; }
+  75% {
+    left: 100%;
+    width: 0%; } }
+
+@keyframes modal-progress-bar1 {
+  0% {
+    left: 0%;
+    width: 0%; }
+  50% {
+    left: 25%;
+    width: 75%; }
+  75% {
+    left: 100%;
+    width: 0%; } }
+
+@-webkit-keyframes modal-progress-bar2 {
+  0% {
+    left: 0%;
+    width: 0%; }
+  50% {
+    left: 0%;
+    width: 0%; }
+  75% {
+    left: 0%;
+    width: 25%; }
+  100% {
+    left: 100%;
+    width: 0%; } }
+
+@keyframes modal-progress-bar2 {
+  0% {
+    left: 0%;
+    width: 0%; }
+  50% {
+    left: 0%;
+    width: 0%; }
+  75% {
+    left: 0%;
+    width: 25%; }
+  100% {
+    left: 100%;
+    width: 0%; } }
